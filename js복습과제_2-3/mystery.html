@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미스터리 숫자</title>
+    <style>
+        .mysterynumber{
+            display: flex;
+            height: 100vw;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: brown;
+            color: white;
+        }
+        h1{
+            font-size: 50px;
+            margin: 0;
+        }
+        .numberinput{
+            display: flex;
+        }
+        #number{
+            width: 200px;
+            height: 80px;
+        }
+        #draw{
+            margin-left: 15px;
+            width: 100px;
+            font-size: 30px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="mysterynumber">
+            <h1>MYSTERY NUMBER</h1>
+            <div class="numberinput">
+            <input type="number" id="number" min="1" step="1">
+            <div class="mystery"></div>
+            <button id="draw">눌러봐</button>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        const mysteryDiv = document.querySelector(".mystery");
+        const inputNumber = document.querySelector("#number");
+        const drawButton = document.querySelector("#draw");
+
+        const mysteryNumber = Math.floor(Math.random() * 100) + 1;
+
+        drawButton.addEventListener("click", function () {
+            let userGuess = parseInt(inputNumber.value);
+
+            mysteryDiv.innerHTML = "";
+
+            if (isNaN(userGuess)) {
+                const p3 = document.createElement("p");
+                p3.textContent = "올바른 숫자를 입력해주세요.";
+                append(p3);
+            } else if (userGuess < mysteryNumber) {
+                const p1 = document.createElement("p");
+                p1.textContent = "숫자가 너무 작아요!";
+                append(p1);
+            } else if (userGuess > mysteryNumber) {
+                const p2 = document.createElement("p");
+                p2.textContent = "숫자가 너무 커요!";
+                append(p2);
+            } else {
+                alert("정답입니다!!!!");
+            }
+        });
+
+        function append(element) {
+            mysteryDiv.appendChild(element);
+        }
+    </script>
+</body>
+</html>

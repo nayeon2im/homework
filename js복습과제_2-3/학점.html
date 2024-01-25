@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문 - 성적표</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+        const a = parseInt(prompt("중간고사 점수를 입력하세요"));
+        let score;
+            if(a>=90){
+                score="A";
+            }else if(a>=80){
+                score="B";
+            }else if(a>=70){
+                score="C";
+            }else if(a>=60){
+                score="D";
+            }else{
+                score="F";
+            }
+
+        const h2 = document.createElement("h2")
+        h2.textContent = `나의 기말고사 점수는 ${a}점, 학점은 ${score}!!!`
+        container.append(h2)
+    </script>
+</body>
+</html>

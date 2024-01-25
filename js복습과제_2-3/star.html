@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별트리 찍기</title>
+    <style>
+        .flex{
+            display: flex;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>별트리 찍기</h1>
+        <div class=" flex">
+            <div class="first_detail">
+                <p>1번별</p>
+            </div> 
+            <div class="first"></div> 
+        </div>
+        <div class="flex">
+            <div class="second_detail">
+                <p>2번별</p>
+
+            </div> 
+        <div class="second"></div>
+        </div>
+        <div class="flex">
+            <div class="third_detail">
+                <p>3번별</p>
+
+            </div> 
+        <div class="third"></div>
+        </div>
+    </div>
+    <script>
+        const first = document.querySelector(".first");
+        const second = document.querySelector(".second");
+        const third = document.querySelector(".third");
+
+        function drawStars(container) {
+            for (let i =0 ; i < 5; i += 1) {
+                for (let n = 0; n <= i; n += 1) {
+                    const span = document.createElement("span");
+                    span.textContent = "*";
+                    container.appendChild(span);
+                }
+                const lineBreak = document.createElement("br");
+                container.appendChild(lineBreak);
+            }
+        }
+
+        function drawReverseStars(container) {
+            for (let i = 5; i >0; i -= 1) {
+                for (let n = 0; n < i; n += 1) {
+                    const span = document.createElement("span");
+                    span.textContent = "*";
+                    container.appendChild(span);
+                }
+                const lineBreak = document.createElement("br");
+                container.appendChild(lineBreak);
+            }
+        }
+
+        for (let i = 1; i <= 9; i += 2) {
+            for (let n = 1; n <= i; n += 1) {
+                const span = document.createElement("span");
+                span.textContent = "*";
+                third.appendChild(span);
+            }
+            const lineBreak = document.createElement("br");
+            third.appendChild(lineBreak);
+        }
+
+        for (let i = 7; i >= 1; i -= 2) {
+            for (let n = 1; n <= i; n += 1) {
+                const span = document.createElement("span");
+                span.textContent = "*";
+                third.appendChild(span);
+            }
+            const lineBreak = document.createElement("br");
+            third.appendChild(lineBreak);
+        }
+        drawStars(first);
+        drawStars(second);
+        drawReverseStars(second);
+    </script>
+</body>
+</html>
